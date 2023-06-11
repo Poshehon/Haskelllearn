@@ -7,3 +7,11 @@ represent :: Int -> [[Int]]
 represent x = [ [n1,n2,n3,n4] |
  n1 <- (take ((limit x `div` 2) + 1) numbers), n2 <- (take (limit x) numbers),
   n3 <- (take (limit x) numbers), n4 <- (take (limit x) numbers), choose x n1 n2 n3 n4]
+health :: Float -> Float -> String
+health weight height
+    | height == 0 = error "You lying to me"
+    | bmi weight height <= 18.5 = "You need to eat!"
+    | bmi weight height <= 25 = "Great!"
+    | otherwise = "You need more sex and sport!"
+    where bmi :: Float -> Float -> Float 
+          bmi x y = x / y ^ 2
