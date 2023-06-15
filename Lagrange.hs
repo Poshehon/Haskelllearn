@@ -37,4 +37,4 @@ caesarcode n st = map (C.chr . (+n) . C.ord) st
 caesardecode :: String -> [String]
 caesardecode [] = [[]]
 caesardecode st = foldl (\acc n -> shift st n : acc) [] [0..159] 
-    where shift st n = map (C.chr . (`mod` 160). (subtract n) . C.ord) st
+    where shift st n = map (C.chr . (`mod` 160) . (subtract n) . C.ord) st
