@@ -1,3 +1,5 @@
+import qualified Data.Char as C
+
 numbers = [0,1..]
 limit :: Int -> Int
 limit x = head [ n | n <- (take x numbers), x <= n^2] + 1 -- no need to check big numbers
@@ -27,3 +29,12 @@ harmonic n
     | n <= 0 = 0.0
 harmonic n = foldl (\acc x -> acc + 1/x) 0 (take n num)
     where num = map fromIntegral [1,2..]
+
+caesarcode :: Int -> String -> String
+caesarcode _ [] = []
+caesarcode n st = map (C.chr . (+n) . C.ord) st
+
+caesardecode :: String -> [String]
+caesardecode [] = [[]]
+caesardecode st = foldl (\acc n -> shift st n : acc) [] [0..159] 
+    where shift st n = map (C.chr . (`mod` 160). (subtract n) . C.ord) st
