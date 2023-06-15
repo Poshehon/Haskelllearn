@@ -10,10 +10,10 @@ represent x = [ [n1,n2,n3,n4] |
 
 health :: Float -> Float -> String
 health weight height
-    | height == 0 = error "You lying to me"
+    | height == 0 = error "You are lying to me"
     | bmi weight height <= 18.5 = "You need to eat!"
     | bmi weight height <= 25 = "Great!"
-    | otherwise = "You need more sport and less food!"
+    | otherwise = "More sport, less food!"
     where bmi :: Float -> Float -> Float 
           bmi x y = x / y ^ 2
 
@@ -21,4 +21,9 @@ quicksort :: (Ord a) => [a] -> [a]
 quicksort [] = []
 quicksort (x:xs) = (quicksort [n | n <- xs, n < x]) ++ [x]
  ++ [n | n <- xs, n == x] ++ (quicksort [n | n <- xs, n > x])
- 
+
+harmonic :: Int -> Double
+harmonic n
+    | n <= 0 = 0.0
+harmonic n = foldl (\acc x -> acc + 1/x) 0 (take n num)
+    where num = map fromIntegral [1,2..]
