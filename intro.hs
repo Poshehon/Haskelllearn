@@ -6,13 +6,15 @@ limit x = head [ n | n <- (take x numbers), x <= n^2] + 1 -- no need to check bi
 choose :: Int -> Int -> Int -> Int -> Int -> Bool
 choose x a b c d = (x == a^2 + b^2 + c^2 + d^2) && (a <= b) && (b <= c) && (c <= d) -- choosing the appropriate sets
 represent :: Int -> [[Int]]
+represent x
+    | x <= 0 = error "Only natural numbers!"
 represent x = [ [n1,n2,n3,n4] |
  n1 <- (take ((limit x `div` 2) + 1) numbers), n2 <- (take (limit x) numbers),
   n3 <- (take (limit x) numbers), n4 <- (take (limit x) numbers), choose x n1 n2 n3 n4]
 
 health :: Float -> Float -> String
 health weight height
-    | height == 0 = error "You are lying to me"
+    | (height <= 0) || (weight <= 0) = error "You are lying to me"
     | bmi weight height <= 18.5 = "You need to eat!"
     | bmi weight height <= 25 = "Great!"
     | otherwise = "More sport, less food!"
@@ -32,9 +34,9 @@ harmonic n = foldl (\acc x -> acc + 1/x) 0 (take n num)
 
 caesarcode :: Int -> String -> String
 caesarcode _ [] = []
-caesarcode n st = map (C.chr . (+n) . C.ord) st
+caesarcode n st = map (C.chr . (`mod` 160) . (+n) . C.ord) st
 
 caesardecode :: String -> [String]
 caesardecode [] = [[]]
-caesardecode st = foldl (\acc n -> shift st n : acc) [] [0..159] 
+caesardecode st = foldl (\acc n -> shift st n : acc) [] [0..159]
     where shift st n = map (C.chr . (`mod` 160) . (subtract n) . C.ord) st
