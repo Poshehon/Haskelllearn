@@ -1,10 +1,14 @@
 import qualified Data.Char as C
 
+numbers :: [Int]
 numbers = [0,1..]
+
 limit :: Int -> Int
 limit x = head [ n | n <- (take x numbers), x <= n^2] + 1 -- no need to check big numbers
+
 choose :: Int -> Int -> Int -> Int -> Int -> Bool
 choose x a b c d = (x == a^2 + b^2 + c^2 + d^2) && (a <= b) && (b <= c) && (c <= d) -- choosing the appropriate sets
+
 represent :: Int -> [[Int]]
 represent x
     | x <= 0 = error "Only natural numbers!"
