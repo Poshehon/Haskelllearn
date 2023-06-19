@@ -17,4 +17,4 @@ translation (Circle (Point x y) r) a b = Circle (Point (x + a) (y + b)) r
 
 data Tree a = Empty | Node a (Tree a) (Tree a) deriving (Show)
 start :: (Ord a) => a -> Tree a
-start a = Empty -- create elementary tree
+start a = Node a Empty Empty-- create elementary tree
