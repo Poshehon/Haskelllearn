@@ -6,5 +6,7 @@ Function "quicksort" sorts list of Ord.
 Function "harmonic" calcilates the sum of the first n terms of the harmonic series.
 Function "caesarcode" encodes your message.
 Function 'caesardecode' decodes your message.
-File figure:
+File types:
 This file implements geometric shapes as a type.
+There are parallel translation and perimieter for such shapes.
+Now I am trying to make binary tree. 
