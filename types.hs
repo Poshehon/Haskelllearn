@@ -32,6 +32,6 @@ search a (Node x left right)
     | a == x = True
     | a < x = search a left
     | a > x = search a right
-{- Я пока не понимаю, почему нельбзя создавать через левые свертки деревья,
-а можно только через правые по типу foldr input Empty [5,7,3,19,8,23,4,1,9,17]
-Если написать foldl input Empty [5,7,3,19,8,23,4,1,9,17], то будет ошибка-}
+
+maketree :: (Ord a) => [a] -> Tree a
+maketree x = foldr input Empty (reverse x)
