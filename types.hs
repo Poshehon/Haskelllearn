@@ -16,5 +16,22 @@ translation (Triangle (Point x1 y1) (Point x2 y2) (Point x3 y3)) a b =
 translation (Circle (Point x y) r) a b = Circle (Point (x + a) (y + b)) r
 
 data Tree a = Empty | Node a (Tree a) (Tree a) deriving (Show)
-start :: (Ord a) => a -> Tree a
-start a = Node a Empty Empty-- create elementary tree
+start :: a -> Tree a
+start a = Node a Empty Empty -- create elementary tree
+
+input :: (Ord a) => a -> Tree a -> Tree a
+input a Empty = start a
+input a (Node x left right)
+    | a < x = Node x (input a left) right
+    | a > x = Node x left (input a right)
+    | otherwise = (Node a) left right
+
+search :: (Ord a) => a -> Tree a -> Bool
+search _ Empty = False
+search a (Node x left right)
+    | a == x = True
+    | a < x = search a left
+    | a > x = search a right
+{- Я пока не понимаю, почему нельбзя создавать через левые свертки деревья,
+а можно только через правые по типу foldr input Empty [5,7,3,19,8,23,4,1,9,17]
+Если написать foldl input Empty [5,7,3,19,8,23,4,1,9,17], то будет ошибка-}
