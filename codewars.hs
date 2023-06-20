@@ -83,5 +83,5 @@ alphabetPosition :: String -> String
 alphabetPosition list = if replacer list == [] then [] else tail (replacer list) 
 
 -- №4 Найти сумму всех чисел меньше заданного, которые делятся на 5 и на 3
-solution :: Integer -> Integer
-solution n = sum [x | x <- [1..(n-1)], (mod x 3 == 0) || (mod x 5 == 0)]
+total :: Integer -> Integer
+total n = sum [x | x <- [1..(n-1)], (mod x 3 == 0) || (mod x 5 == 0)]
