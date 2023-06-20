@@ -9,4 +9,6 @@ Function 'caesardecode' decodes your message.
 File types:
 This file implements geometric shapes as a type.
 There are parallel translation and perimieter for such shapes.
-Now I am trying to make binary tree. 
+Search trees are also implemented.
+File codewars:
+This file will contain solutions to problems from codewars.
