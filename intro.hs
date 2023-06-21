@@ -58,3 +58,8 @@ unfold :: (b -> Maybe (a, b)) -> b -> [a]
 unfold f start = (helper . f) start 
     where helper Nothing = []
           helper (Just (x, start')) = x : unfold f start'
+-- unfold (\x -> if x < 100 then Just (x^2, x+1) else Nothing) (-4)
+
+use :: (a -> b) -> (c -> d) -> (a, c) -> (b, d)
+use f g ~(x, y) = (f x, g y)
+-- try f x = const 1 x, g x = const (-1) x with undefined

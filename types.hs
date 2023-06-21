@@ -43,3 +43,10 @@ instance Show TrafficLight where
         Red -> "The light is red. You need to stop"
         Yellow -> "The light is yellow. Wait for the color change"
         _ -> "The light is green. You can go now"
+
+type Name = String --  synonym
+
+data Person = Person {firstName :: Name, lastName :: Name, age :: Int}
+
+instance Show Person where
+    show x = "Hello " ++ firstName x ++ " " ++ lastName x ++ ". You are " ++ (show . age) x ++ " years old."
