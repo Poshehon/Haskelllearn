@@ -35,3 +35,11 @@ search a (Node x left right)
 
 maketree :: (Ord a) => [a] -> Tree a
 maketree x = foldr input Empty (reverse x)
+
+data TrafficLight = Red | Yellow | Green
+
+instance Show TrafficLight where
+    show x = case x of
+        Red -> "The light is red. You need to stop"
+        Yellow -> "The light is yellow. Wait for the color change"
+        _ -> "The light is green. You can go now"

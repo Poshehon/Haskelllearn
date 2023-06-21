@@ -44,3 +44,17 @@ caesardecode :: String -> [String]
 caesardecode [] = [[]]
 caesardecode st = foldl (\acc n -> shift st n : acc) [] [0..159]
     where shift st n = map (C.chr . (`mod` 160) . (subtract n) . C.ord) st
+
+roots :: Float -> Float -> Float -> (Float, Float)
+roots a b c = let
+    d = b ^ 2 - 4 * a * c
+    in ((-b + sqrt d) / 2, (-b - sqrt d) / 2)
+
+rootsdiff a b c = let
+    (x1, x2) = roots a b c
+    in x1 - x2
+
+unfold :: (b -> Maybe (a, b)) -> b -> [a]
+unfold f start = (helper . f) start 
+    where helper Nothing = []
+          helper (Just (x, start')) = x : unfold f start'
