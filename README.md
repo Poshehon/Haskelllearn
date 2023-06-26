@@ -14,3 +14,9 @@ Search trees are also implemented.
 Traffic light type added to class Show
 File codewars:
 This file will contain solutions to problems from codewars.
+File hello:
+This file demonstrates the IO operation in the console.
+File file:
+This file demonstrates how IO works with a file.
+File todo:
+A to-do list is implemented here.
