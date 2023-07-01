@@ -78,4 +78,9 @@ instance Monoid ProdInt where
 
 class (Applicative m) => Monad m where
     (>>=)  :: m a -> (a -> m b) -> m b
+    return = pure
+
+1. return a >>= k = k a
+2. m >>= return = m
+3. m >>= (\x -> f x >>= g) = m >>= f >>= g
 -}
