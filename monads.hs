@@ -1,4 +1,5 @@
 import Control.Monad.Writer
+import Control.Monad.State
 {-
 newtype Writer w a = Writer { runWriter :: (a, w)}
 instance (Monoid w) => Monad (Writer w) where
@@ -92,5 +93,14 @@ instance Monad (State s) where
         let (a, s') = runState m st
         m' = k m
         in runState m' st')
+get :: State s s
+get = State (\s -> (s,s))
 
+put :: s -> State s ()
+put s = State (\x -> ((), s))
 -}
+tick :: State Int Int
+tick = do
+    n <- get
+    put (n+1)
+    return n
