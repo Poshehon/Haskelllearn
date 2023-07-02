@@ -85,5 +85,12 @@ safehead = do
         return (Just h)
 -- we can write e <- id
 {-
-instance Monad (State s)
+newtype State s a = State {runState :: s -> (a,s)}
+instance Monad (State s) where
+    return x = State (\s -> (x,s))
+    m >>= k = State (\s -> 
+        let (a, s') = runState m st
+        m' = k m
+        in runState m' st')
+
 -}
