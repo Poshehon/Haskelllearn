@@ -20,3 +20,7 @@ File file:
 This file demonstrates how IO works with a file.
 File todo:
 A to-do list is implemented here.
+File abstraction:
+This file contains information about abstract classes.
+File monads:
+This file is entirely dedicated to monads.
