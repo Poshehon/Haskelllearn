@@ -63,3 +63,27 @@ instance Applicative [] where
 instance Monad [] where
     xs >>= f = concat (map f xs)
 -}
+euclid :: Int -> Int -> Writer [String] Int
+euclid x y
+    | y == 0 = do
+        tell ["Algoritm is over"]
+        return x
+    | otherwise = do
+        tell [show x ++ " mod " ++ show y ++ " = " ++ show (x `mod` y)]
+        euclid y (x `mod` y)
+{-
+instance Monad ((->) r) where
+    return x = \_ -> x
+    h >>= f = \w -> f (h w) w
+-}
+safehead :: [a] -> Maybe a
+safehead = do
+    a <- null
+    if a then return Nothing
+    else do
+        h <- head
+        return (Just h)
+-- we can write e <- id
+{-
+instance Monad (State s)
+-}

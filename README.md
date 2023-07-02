@@ -1,26 +1,4 @@
-File intro:
-Lagrange's theorem states that any natural number is representable as a sum of 4 squares.
-Function "represent" looking for representations in the form of sums of 4 squares.
-Function "health" counts bmi and compares it with normal value.
-Function "quicksort" sorts list of Ord.
-Function "harmonic" calcilates the sum of the first n terms of the harmonic series.
-Function "caesarcode" encodes your message.
-Function "caesardecode" decodes your message.
-Function "roots" solves square equation
-File types:
-This file implements geometric shapes as a type.
-There are parallel translation and perimieter for such shapes.
-Search trees are also implemented.
-Traffic light type added to class Show
-File codewars:
-This file will contain solutions to problems from codewars.
-File hello:
-This file demonstrates the IO operation in the console.
-File file:
-This file demonstrates how IO works with a file.
-File todo:
-A to-do list is implemented here.
-File abstraction:
-This file contains information about abstract classes.
-File monads:
-This file is entirely dedicated to monads.
+Что дальше? Немного больше информации можно найти в книжке "Изучай Haskell во имя добра".
+В целом эта книга соответсвует курсу, но в ней есть еще немного дополнительной информации и примеров
+Если хотите полностью изучить основные библиотеки, то есть книжка Душкина "Справочник по языку Haskell"
+Решайте задачи и получайте удовольствие!
