@@ -104,3 +104,17 @@ tick = do
     n <- get
     put (n+1)
     return n
+{-
+ghci> join (Just (Just 9))
+Just 9
+ghci> join (Just Nothing)
+Nothing
+
+ghci> join [[1,2,3],[4,5,6]]
+[1,2,3,4,5,6]
+
+join :: (Monad m) => m (m a) –> m a
+join mm = do
+m <– mm
+m
+-}
